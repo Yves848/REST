@@ -1,5 +1,5 @@
 const express = require('express');
-var Scraper = require('images-scraper');
+var Scraper = require('./scraper');
 
 const google = new Scraper({
     puppeteer: {
@@ -29,5 +29,6 @@ app.get('/search/:id',async (req, res) => {
     const urls = results.map(result => {
         return {url: result.url}
     })
+    
     res.status(200).json(urls)
 })
